@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Warehouse
+ * 
+ * @author Slava Yurthev
+ */ 
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+		<arguments>
+			<argument name="modifiers" xsi:type="array">
+				<item name="modulename" xsi:type="array">
+					<item name="class" xsi:type="string">SY\Warehouse\Ui\DataProvider\Product\Modifier\Warehouses</item>
+					<item name="sortOrder" xsi:type="number">200</item>
+				</item>
+			</argument>
+		</arguments>
+	</virtualType>
+	<type name="SY\Warehouse\Ui\DataProvider\Product\Modifier\Warehouses">
+		<arguments>
+			<argument name="formName" xsi:type="string">product_form</argument>
+			<argument name="dataScopeName" xsi:type="string">product_form.product_form</argument>
+			<argument name="dataSourceName" xsi:type="string">product_form.product_form_data_source</argument>
+		</arguments>
+	</type>
+</config>

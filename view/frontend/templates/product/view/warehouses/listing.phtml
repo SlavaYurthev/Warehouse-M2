@@ -1,0 +1,60 @@
+<?php
+/**
+ * Warehouse
+ * 
+ * @author Slava Yurthev
+ */
+?>
+<?php if($this->isActive()): ?>
+	<?php $collection = $this->getCollection(); ?>
+	<?php if($collection->count() > 0): ?>
+		<div class="fieldset warehouses" style="margin:20px 0">
+			<label class="label" for="warehouse"><strong><?php echo __('Warehouses:'); ?></strong></label>
+			<table class="table" width="100%">
+				<?php foreach($collection as $warehouse): ?>
+					<?php $item = $this->getItem($warehouse->getData('id')); ?>
+					<?php if($item->getData('use') == "1"): ?>
+						<tr class="item">
+							<td class="title">
+								<span style="float:left"><?php echo $warehouse->getData('title'); ?></span>
+								<a href="javascript:void(0)" style="float:left; margin-left:6px" data-warehouse-id="<?php echo $warehouse->getData('id'); ?>" title="test">
+									<img src="<?php echo $this->getViewFileUrl('SY_Warehouse::images/info-icon.png'); ?>" height="18" width="18">
+								</a>
+								<div style="display:none">
+									<div class="description">
+										<?php echo $warehouse->getData('description'); ?>
+									</div>
+								</div>
+								<div style="clear:both;width:100%"></div>
+							</td>
+							<td class="status">
+								<?php if($item->getData('in_stock') == "1"): ?>
+									<?php echo __('In Stock'); ?>
+								<?php else: ?>
+									<?php echo __('Out of Stock'); ?>
+								<?php endif; ?>
+							</td>
+							<?php if($item->getData('qty') > 0): ?>
+								<td class="qty">
+									<?php echo __('Qty: %1', $item->getData('qty')); ?>
+								</td>
+							<?php endif; ?>
+						</tr>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</table>
+		</div>
+		<script type="text/javascript">
+require(['jquery', 'jquery/ui'], function(jQuery, ui){
+	jQuery(function(){
+		jQuery('.warehouses .item .title a').each(function(){
+			jQuery(this).tooltip({
+				content: jQuery(this).next().find('div').html(),
+				position: { my: "right bottom", at: "left top-10" }
+			});
+		});
+	});
+});
+		</script>
+	<?php endif; ?>
+<?php endif; ?>

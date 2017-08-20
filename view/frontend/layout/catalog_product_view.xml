@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Warehouse
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="SY_Warehouse::css/tooltip.css" />
+	</head>
+	<body>
+		<referenceBlock name="product.info.form.content">
+			<block class="SY\Warehouse\Block\Catalog\Product\View\Warehouses\Listing" template="product/view/warehouses/listing.phtml" before="product.info.addtocart" />
+		</referenceBlock>
+	</body>
+</page>

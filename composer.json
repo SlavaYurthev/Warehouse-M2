@@ -1,0 +1,23 @@
+{
+    "name": "sy/warehouse",
+    "description": "Inject Warehouses",
+    "license": [
+        "OSL-3.0"
+    ],
+    "type": "magento2-module",
+    "version": "0.0.5",
+    "authors": [
+        {
+            "name": "Slava Yurthev",
+            "email": "slavik-iii@ukr.net",
+            "homepage": "https://github.com/SlavaYurthev/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "SY\\Warehouse\\": ""
+        }
+    }
+}

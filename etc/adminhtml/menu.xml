@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Warehouse
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<update id="SY::core"
+			 title="Slava Yurthev"
+			 module="Magento_Backend"
+			 sortOrder="9999"
+			 resource="Magento_Backend::content" />
+		<update id="SY::developer"
+			 title="Developer"
+			 module="Magento_Backend" 
+			 sortOrder="1000"
+			 parent="SY::core"
+			 resource="Magento_Backend::content" />
+		<update id="SY::developer_developer"
+			 title="Developer"
+			 module="Magento_Backend" 
+			 sortOrder="1000"
+			 parent="SY::developer"
+			 action="adminhtml/system_config/edit/section/sy_developer/"
+			 resource="Magento_Backend::content" />
+		<add id="SY_Warehouse::section"
+			 title="Warehouses"
+			 module="SY_Warehouse" 
+			 sortOrder="0"
+			 parent="SY::core"
+			 resource="SY_Warehouse::section" />
+		<add id="SY_Warehouse::warehouses"
+			 title="Warehouses"
+			 module="SY_Warehouse" 
+			 sortOrder="0"
+			 parent="SY_Warehouse::section"
+			 action="sy_warehouse/warehouses"
+			 resource="SY_Warehouse::warehouses" />
+		<add id="SY_Warehouse::configuration"
+			 title="Configuration"
+			 module="SY_Warehouse" 
+			 sortOrder="1"
+			 parent="SY_Warehouse::section"
+			 action="adminhtml/system_config/edit/section/sy_warehouses/"
+			 resource="SY_Warehouse::configuration" />
+	</menu>
+</config>
